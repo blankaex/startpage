@@ -1,0 +1,10 @@
+*.swp*
+releases
+recolor
+tmp
+exp
+manifest.json
+ss*.png
+ss*.jpg
+*.zip
+*.tar*
