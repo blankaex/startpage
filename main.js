@@ -90,13 +90,17 @@ window.onload = function()
                     query = query.substr(3);
                     window.location="https://gelbooru.com/index.php?page=post&s=list&tags=" + query.replaceChars(" ", "+");
                     break;
+                case "-p ":
+                    query = query.substr(3);
+                    window.location="http://www.pixiv.net/search.php?s_mode=s_tag&word=" + query.replaceChars(" ", "%20");
+                    break;
                 case "-y ":
                     query = query.substr(3);
                     window.location="https://www.youtube.com/results?search_query=" + query.replaceChars(" ", "+");
                     break;
-                case "-p ":
+                case "-n ":
                     query = query.substr(3);
-                    window.location="http://www.pixiv.net/search.php?s_mode=s_tag&word=" + query.replaceChars(" ", "%20");
+                    window.location="http://www.nicovideo.jp/search/" + query.replaceChars(" ", "+");
                     break;
                 default:
                     window.location="https://www.google.com/#q=" + query.replaceChars(" ", "+");

@@ -2,7 +2,7 @@
     "bool": {
         "borders":              true,
         "alwaysopen":           false,
-        "mascot":               true
+        "mascot":               false
     },
     
     "style": {
