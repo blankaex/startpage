@@ -67,27 +67,22 @@ window.onload = function(){
         var key = a.keyCode;
         if(key == 13){
             var query = this.value;
-            if(!cfg_bool[1]){
-                switch(query.substr(0,3)){
-                    case "-g ":
-                        query = query.substr(3);
-                        window.location="https://gelbooru.com/index.php?page=post&s=list&tags=" + query.replaceChars(" ", "+");
-                        break;
-                    case "-y ":
-                        query = query.substr(3);
-                        window.location="https://www.youtube.com/results?search_query=" + query.replaceChars(" ", "+");
-                        break;
-                    case "-p ":
-                        query = query.substr(3);
-                        window.location="http://www.pixiv.net/search.php?s_mode=s_tag&word=" + query.replaceChars(" ", "%20");
-                        break;
-                    default:
-                        query = query.substr(3);
-                        window.location="https://www.google.com/#q=" + query.replaceChars(" ", "+");
-                }
-            }
-            else{
-                window.location="https://www.google.com/#q=" + query.replaceChars(" ", "+");
+            switch(query.substr(0,3)){
+                case "-g ":
+                    query = query.substr(3);
+                    window.location="https://gelbooru.com/index.php?page=post&s=list&tags=" + query.replaceChars(" ", "+");
+                    break;
+                case "-y ":
+                    query = query.substr(3);
+                    window.location="https://www.youtube.com/results?search_query=" + query.replaceChars(" ", "+");
+                    break;
+                case "-p ":
+                    query = query.substr(3);
+                    window.location="http://www.pixiv.net/search.php?s_mode=s_tag&word=" + query.replaceChars(" ", "%20");
+                    break;
+                default:
+                    query = query.substr(3);
+                    window.location="https://www.google.com/#q=" + query.replaceChars(" ", "+");
             }
         }
     });
