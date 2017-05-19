@@ -2,7 +2,7 @@
 
 Based on [startpage by fuyuneko](https://github.com/fuyuneko/startpage) *I think* (I can't actually remember where I stole it from).
 
-![example screenshot (150418)](https://i.imgur.com/63JafIP.jpg)
+![example screenshot (150418)](https://i.imgur.com/rcE2iob.jpg)
 ![example screenshot expanded (150418)](https://i.imgur.com/Qtz5p2O.jpg)
 
 ### Usage
