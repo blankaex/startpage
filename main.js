@@ -1,5 +1,7 @@
-$.getJSON("config.json", function(data){
-    window.cfg = [
+$.getJSON("config.json", function(data)
+{
+    window.cfg = 
+    [
         data.style.heading_font,
         data.style.link_font,
         data.style.heading_font_size,
@@ -19,12 +21,15 @@ $.getJSON("config.json", function(data){
         data.ext.width,
         data.ext.opacity
     ];
-    window.cfg_bool = [
+    
+    window.cfg_bool = 
+    [
         data.bool.borders,
         data.bool.simplesearch,
         data.bool.alwaysopen,
         data.bool.mascot
     ];
+    
     $("span").css("fontFamily", cfg[0]);
     $("a").css("fontFamily", cfg[1]);
     $("span").css("fontSize", cfg[2]);
@@ -37,37 +42,50 @@ $.getJSON("config.json", function(data){
     $(".sqr").css("borderBottom", "0 solid " + cfg[8]);
     $("#searchinput").css("color", cfg[10]);
     $("#searchinput").css("backgroundColor", cfg[11]);
-    if(cfg_bool[3]){
+    
+    if(cfg_bool[3])
+    {
         $("#bgimg").css("backgroundImage", "url('" +  cfg[12] + "')");
         $("#bgimg").css("bottom", cfg[13]);
         $("#bgimg").css("right", cfg[14]);
         $("#bgimg").css("height", cfg[15]);
         $("#bgimg").css("width", cfg[16]);
         $("#bgimg").css("opacity", cfg[17]);
-    }else{
+    }
+    else
+    {
         $("#bgimg").css("backgroundImage", "");
     }
 });
 
-function evenContainerHeight(){
-	if(window.innerHeight % 2 ==0){
+function evenContainerHeight()
+{
+	if(window.innerHeight % 2 ==0)
+    {
 		document.getElementById("container").style.height = window.innerHeight;
-	}else{
+	}
+    else
+    {
 		document.getElementById("container").style.height = window.innerHeight - 1;
 	}
 }
 
-window.onresize = function(){
+window.onresize = function()
+{
 	evenContainerHeight();
 }
 
-window.onload = function(){
+window.onload = function()
+{
 	evenContainerHeight();
-    document.getElementById("searchinput").addEventListener("keypress", function search(a){
+    document.getElementById("searchinput").addEventListener("keypress", function search(a)
+    {
         var key = a.keyCode;
-        if(key == 13){
+        if(key == 13)
+        {
             var query = this.value;
-            switch(query.substr(0,3)){
+            switch(query.substr(0,3))
+            {
                 case "-g ":
                     query = query.substr(3);
                     window.location="https://gelbooru.com/index.php?page=post&s=list&tags=" + query.replaceChars(" ", "+");
@@ -81,15 +99,16 @@ window.onload = function(){
                     window.location="http://www.pixiv.net/search.php?s_mode=s_tag&word=" + query.replaceChars(" ", "%20");
                     break;
                 default:
-                    query = query.substr(3);
                     window.location="https://www.google.com/#q=" + query.replaceChars(" ", "+");
             }
         }
     });
     
-    document.addEventListener("keypress", function search(a){
+    document.addEventListener("keypress", function search(a)
+    {
         var key = a.keyCode;
-        if(key == 9){
+        if(key == 9)
+        {
             var search_sqr = document.getElementById("search_sqr")
             search_sqr.style.height=300+37+"px";
             search_sqr.style.borderTop= cfg[9] + " solid " + cfg[8];
@@ -97,27 +116,36 @@ window.onload = function(){
             document.getElementById("searchinput").focus();
         }
     
-        if([9].indexOf(key) > -1) {
+        if([9].indexOf(key) > -1)
+        {
             a.preventDefault();
         }
     });
 
     var sqr = document.querySelectorAll(".sqr");
-    if(!cfg_bool[2]){
-        for(var i = 0; i < sqr.length; ++i) {
+    if(!cfg_bool[2])
+    {
+        for(var i = 0; i < sqr.length; ++i) 
+        {
             sqr[i].addEventListener("mouseover", expand, false);
             sqr[i].addEventListener("mouseout", contract, false);
         }
-    }else{
-        for(var i = 0; i < sqr.length; ++i){
+    }
+    else
+    {
+        for(var i = 0; i < sqr.length; ++i)
+        {
             var a = 0;
-            for(var x = 0; x < sqr.length; ++x){
-                if(a<sqr[x].getElementsByTagName("a").length){
+            for(var x = 0; x < sqr.length; ++x)
+            {
+                if(a<sqr[x].getElementsByTagName("a").length)
+                {
                     a = sqr[x].getElementsByTagName("a").length;
                 }
             }
             sqr[i].style.height=225+25*a+"px";
-            if(cfg_bool[0]){
+            if(cfg_bool[0])
+            {
                 sqr[i].style.borderTop= cfg[9] + " solid " + cfg[8];
                 sqr[i].style.borderBottom= cfg[9] + " solid " + cfg[8];
             }
@@ -125,31 +153,41 @@ window.onload = function(){
     }
 }
 
-function expand(){
+function expand()
+{
 	var acount = this.getElementsByTagName("a").length;
     var icount = this.getElementsByTagName("input").length;
-    if(icount >= 1){
+    if(icount >= 1)
+    {
         this.style.height=300+37*icount+"px";
-    }else{
+    }
+    else
+    {
         this.style.height=300+25*acount+"px";
     }
-    if(cfg_bool[0]){
+    if(cfg_bool[0])
+    {
         this.style.borderTop= cfg[9] + " solid " + cfg[8];
         this.style.borderBottom= cfg[9] + " solid " + cfg[8];
     }
 }
-function contract(){
+
+function contract()
+{
 	this.style.height="150px";
 	this.style.borderTop="0 solid" + cfg[8];
 	this.style.borderBottom="0 solid" + cfg[8];
 }
 
-String.prototype.replaceChars = function(character, replacement){
+String.prototype.replaceChars = function(character, replacement)
+{
     var str = this;
     var a;
     var b;
-    for(var i=0; i < str.length; i++){
-        if(str.charAt(i) == character){
+    for(var i=0; i < str.length; i++)
+    {
+        if(str.charAt(i) == character)
+        {
             a = str.substr(0, i) + replacement;
             b = str.substr(i + 1);
             str = a + b;
@@ -158,7 +196,8 @@ String.prototype.replaceChars = function(character, replacement){
     return str;
 }
 
-window.onunload = function(){
+window.onunload = function()
+{
     delete window.cfg;
     delete window.cfg_bool;
 }
