@@ -71,7 +71,7 @@ window.onload = function(){
                 switch(query.substr(0,3)){
                     case "-g ":
                         query = query.substr(3);
-                        window.location="https://www.google.com/#q=" + query.replaceChars(" ", "+");
+                        window.location="https://gelbooru.com/index.php?page=post&s=list&tags=" + query.replaceChars(" ", "+");
                         break;
                     case "-y ":
                         query = query.substr(3);
@@ -81,6 +81,9 @@ window.onload = function(){
                         query = query.substr(3);
                         window.location="http://www.pixiv.net/search.php?s_mode=s_tag&word=" + query.replaceChars(" ", "%20");
                         break;
+                    default:
+                        query = query.substr(3);
+                        window.location="https://www.google.com/#q=" + query.replaceChars(" ", "+");
                 }
             }
             else{

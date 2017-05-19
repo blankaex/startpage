@@ -1,7 +1,7 @@
 {
     "bool": {
         "borders":              true,
-        "simplesearch":         true,
+        "simplesearch":         false,
         "alwaysopen":           false,
         "mascot":               true
     },
